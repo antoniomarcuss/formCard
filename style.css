@@ -131,9 +131,7 @@ header p {
 form{
   padding: 4%;
   width:100%;
-  font-weight: bolder;
-  color: var();
- 
+  font-weight: bold; 
 }
 
 
@@ -141,6 +139,8 @@ form{
     display: flex;
     flex-flow: column;
     margin: 10px;
+    color: var(--very-dark-violet);
+    
 }
 
 #name, #card{
@@ -164,6 +164,7 @@ form{
 .inputDate{
     display: flex;
     margin: 10px;
+    color: var(--very-dark-violet);
 }
 
 .expDate{
@@ -236,7 +237,7 @@ footer{
     main{
         max-width: none;
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         display: flex;
         position: relative;
     }
@@ -252,16 +253,16 @@ footer{
     }
 
     .cardBack{
-        top: 38%;
-        left: 45%;
+        top: 35%;
+        left: 55%;
         transform: translateY(55%);
-        width: 100%; 
+        width: 80%; 
     }
 
     .cardFront {
-        top: 25%;
-        left: 25%;
-        width: 100%;
+        top: 20%;
+        left: 40%;
+        width: 80%;
     }
 
     .zeros{
@@ -269,7 +270,7 @@ footer{
     }
     
     .zeros span{
-        font-size: 1.7vw;
+        font-size: 1.5vw;
         margin: 0.2em;
 
     }
@@ -288,11 +289,19 @@ footer{
         flex-flow: column;
         justify-content: center;
         align-items: flex-end;
-        height: 75vh; 
     }
 
     .nameCard{
         width: 70%;
+    }
+
+    #mm, #yy, #cvc {
+        padding: 5px;
+    
+    }
+
+    .inputName {
+        padding-top: 0%;
     }
 
     .inputDate{
@@ -305,9 +314,22 @@ footer{
         flex-grow: 1;
     }
 
+    #name, #card{
+        font-size: 1.5vw;
+    }
+
+
+    input::placeholder{
+        font-size: 1.7vw;
+    }
+
     .botao{
         width: 70%;
         margin-right: 5px;
+    }
+
+    button:hover{
+        background-color: rgb(48, 6, 87);
     }
     
 }
@@ -343,15 +365,20 @@ footer{
 
     .cardBack{
         top: 38%;
-        left: 45%;
+        left: 60%;
         transform: translateY(55%);
-        width: 100%; 
+        width: 80%; 
     }
 
     .cardFront {
         top: 20%;
-        left: 25%;
-        width: 100%;
+        left: 45%;
+        width: 80%;
+    }
+
+    .inputName {
+        padding-top: 0%;
+     
     }
 
     .zeros{
@@ -359,7 +386,7 @@ footer{
     }
     
     .zeros span{
-        font-size: 1.7vw;
+        font-size: 1.4vw;
         margin: 0.2em;
     }
 
@@ -377,11 +404,17 @@ footer{
         flex-flow: column;
         justify-content: center;
         align-items: center;
+        
         /* height: 90vh; */
     }
 
     .nameCard{
         width: 50%;
+    }
+
+    #mm, #yy, #cvc {
+        padding: 10px;
+    
     }
 
     .inputDate{
@@ -394,10 +427,45 @@ footer{
         flex-grow: 1;
     }
 
+
+    #name, #card{
+        font-size: 1vw;
+    }
+
+    input::placeholder{
+        font-size: 1.4vw;
+    }
+
     .botao{
         width: 50%;
     }
-    
+
+    .botao button{
+        padding: 13px;
+    }
+
+    button:hover{
+        background-color: rgb(48, 6, 87);
+    }
+
+    footer{
+        display: block;
+        position: absolute;
+        bottom: 3%;
+        left: 60%;
+        transform: translate(-35%);
+        font-size: 1.3vw;
+        
+    }
+
+    footer a {
+        text-decoration: none;
+        font-size: 1.3vw;
+    }
+
+    footer a:hover{
+        text-decoration: underline;
+    }
 }
     
     
