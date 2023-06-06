@@ -375,19 +375,22 @@ footer{
         height: 100vh;
     }
 
+
     .cardBack{
-        top: 32vh;
-        left: 50%;
-        transform: translateY(55%);
+        top: 50vh;
+        left: 10%;
+        transform: translateX(50%);
         width: 90%; 
     }
 
-    .cardFront {
-        top: 15vh;
-        left: 35%;
-        width: 90%;
-    }
     
+    .cardFront{
+        top: 17vh;
+        left: 10%;
+        transform: translateX(25%);
+        width: 90%; 
+    }
+
     .inputName, .inputCard, .expDate span{
         padding-top: 0%;
         font-size: 1vw;

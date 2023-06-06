@@ -220,17 +220,20 @@ footer{
     }
 
     .cardBack{
-        top: 32vh;
-        left: 50%;
-        transform: translateY(55%);
+        top: 50vh;
+        left: 10%;
+        transform: translateX(50%);
         width: 90%; 
     }
 
-    .cardFront {
-        top: 15vh;
-        left: 35%;
-        width: 90%;
+    
+    .cardFront{
+        top: 17vh;
+        left: 10%;
+        transform: translateX(25%);
+        width: 90%; 
     }
+
     
     
     .zeros span{
