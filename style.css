@@ -454,10 +454,12 @@ footer{
 
     .botao button{
         padding: 10px;
+        font-size: 1vw;
     }
 
     button:hover{
         background-color: rgb(48, 6, 87);
+        
     }
 
     footer{

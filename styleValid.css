@@ -1,0 +1,295 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Space Grotesk ;
+    font-size: 18px;
+}
+
+@font-face {
+    font-family: Space Grotesk;
+    src: url('fonts/SpaceGrotesk-VariableFont_wght.ttf');
+}
+
+:root {
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+}
+
+#container{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    max-width:762px;
+    width: 100%;
+}
+
+header{
+    width: 100%;
+}
+
+header p {
+    position: absolute;
+    top: 42%;
+    right: 12%;
+    color: white;
+    z-index: 1;
+    font-size: 4vw;
+}
+
+
+.imgHeader {
+    position: relative;
+}
+
+.imgHeader .imgMobile{
+    width: 100%;
+    object-fit: cover;
+}
+
+.cardBack img{
+    width: 100%;
+}
+
+.cardBack{
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    width: 80%;
+   
+}
+
+.cardFront img{
+    width: 100%;
+}
+.cardFront {
+    position: absolute;
+    top: calc(40% + 20px); /* Ajuste o valor '10px' conforme necessário */
+    left: 5%;
+    width: 80%;
+}
+
+.circle{
+    position: absolute;
+    width: 10%;
+    height: 17%;
+    border-radius: 100%;
+    top: 10%;
+    left: 5%;
+    background-color: white;
+}
+
+.circleSmall{
+    position: absolute;
+    width: 5%;
+    height: 9%;
+    border-radius: 100%;
+    top: 15%;
+    left: 19%;
+    border: 1.5px solid white;
+}
+.zeros{
+    position: absolute;
+    top: 55%;
+    left:5%;
+    width: 100%;
+    
+}
+
+.zeros span{
+    font-size: 4.4vw;
+    margin: 0.3em;
+    color: white;
+}
+
+.dados {
+    position: absolute;
+    bottom: 5%;
+    left: 7%;
+    transform: translateY(65%);
+    font-size: 3.5vw;   
+}
+
+.zeros2{
+    position: absolute;
+    bottom: 5%;
+    right: 20px;
+    transform: translateY(65%);
+    font-size: 2.5vw;  
+}
+
+.imgValid img{
+    width: 10vh;
+}
+
+.imgValid{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    justify-content: center;
+    min-height: 60vh;
+    width: 100%;
+    
+}
+
+form p{
+    font-size: 8vw;
+    color: var(--very-dark-violet);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+form,span {
+    margin-top: 10px;
+    font-size: 5vw;
+    color: var(--dark-grayish-violet);
+}
+
+.botao  {
+    width: 90%;
+}
+
+button{
+    width: 100%;
+    background-color: var(--very-dark-violet);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+}
+
+footer{
+    display: none;
+}
+
+
+.imgDesktop{
+    display: none;
+}
+
+
+
+@media screen and (min-width: 762px) {
+
+    #container{
+        min-height: 100vh;
+    }
+
+    header{
+        width: 45%;
+    }
+
+    header p {
+        top: 44%;
+        font-size: 1vw;
+    }
+
+    main{
+        max-width: 1440px;
+        height: 100vh;
+        display: flex;
+        position: relative;
+    }
+
+    .imgMobile{
+        display: none;
+    }
+
+    .imgDesktop{
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .cardBack{
+        top: 32vh;
+        left: 50%;
+        transform: translateY(55%);
+        width: 90%; 
+    }
+
+    .cardFront {
+        top: 15vh;
+        left: 35%;
+        width: 90%;
+    }
+    
+    
+    .zeros span{
+        font-size: 1.4vw;
+        margin: 0.2em;
+    }
+
+    .dados {
+        font-size: 1.3vw;   
+    }
+    
+    .zeros2{
+        bottom: 3%;
+        font-size: 1vw;  
+    }
+
+    .imgValid img{
+        width: 7vw;
+    }
+    
+    .imgValid{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    form{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    form p{
+        font-size: 2vw;
+        color: var(--very-dark-violet);
+        font-weight: bold;
+    }
+    
+    form,span {
+        font-size: 1.5vw;
+        color: var(--dark-grayish-violet);
+    }
+
+    .botao{
+        width: 40%;
+    }
+
+    .botao button{
+        padding: 15px;
+        font-size: 1.5vw;
+    }
+
+    button:hover{
+        background-color: rgb(48, 6, 87);
+        
+    }
+}
+    
+    
+  
