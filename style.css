@@ -177,7 +177,7 @@ form{
 }
 
 #mm, #yy {
-    width: 80px;
+    width: 80%;
     border-radius: 5px;
     border: 1px solid rgb(189, 189, 189);
     padding: 15px;
@@ -187,14 +187,14 @@ form{
 }
 
 #cvc{
-    width: 97%;
+    width: 95%;
     text-align: left;
     border-radius: 5px;
     border: 1px solid rgb(189, 189, 189);
     padding: 8px;
     margin: 5px;
     flex-grow: 1;
-    font-size: 100%;
+    
 }
 
 input::placeholder{
@@ -376,22 +376,29 @@ footer{
     }
 
     .cardBack{
-        top: 38vh;
-        left: 60%;
+        top: 32vh;
+        left: 50%;
         transform: translateY(55%);
-        width: 80%; 
+        width: 90%; 
     }
 
     .cardFront {
-        top: 20vh;
-        left: 45%;
-        width: 80%;
+        top: 15vh;
+        left: 35%;
+        width: 90%;
+    }
+    
+    .inputName, .inputCard, .expDate span{
+        padding-top: 0%;
+        font-size: 1vw;
     }
 
-    .inputName {
-        padding-top: 0%;
-     
+    
+    .inputDate{
+        display: flex;
+        width: 40%;
     }
+    
     
     .zeros span{
         font-size: 1.4vw;
@@ -412,44 +419,41 @@ footer{
         flex-flow: column;
         justify-content: center;
         align-items: center;
-        
-        /* height: 90vh; */
+
     }
 
     .nameCard{
-        width: 50%;
+        width: 40%;
     }
 
     #mm, #yy, #cvc {
-        padding: 10px;
+        padding: 5px;
+        width: 80%;
     
     }
 
-    .inputDate{
-        display: flex;
-        width: 50%;
-    }
 
      .expDate {
         display: flex;
         flex-grow: 1;
     }
 
-
     #name, #card{
-        font-size: 1vw;
+        padding: 5px;
     }
 
+
+
     input::placeholder{
-        font-size: 1.4vw;
+        font-size: 1.2vw;
     }
 
     .botao{
-        width: 50%;
+        width: 40%;
     }
 
     .botao button{
-        padding: 13px;
+        padding: 10px;
     }
 
     button:hover{
@@ -459,7 +463,7 @@ footer{
     footer{
         display: block;
         position: absolute;
-        bottom: 3%;
+        bottom: 0;
         left: 60%;
         transform: translate(-35%);
         font-size: 1.3vw;
