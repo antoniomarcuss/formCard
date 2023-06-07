@@ -143,6 +143,7 @@ form{
     
 }
 
+
 #name, #card{
     display: flex;
     width: 100%;
@@ -157,9 +158,6 @@ form{
     padding-top: 15%;
 }
 
-#name, #card {
-    margin-bottom: 10px;
-}
 
 .inputDate{
     display: flex;
@@ -167,10 +165,16 @@ form{
     color: var(--very-dark-violet);
 }
 
+input {
+    font-size: 3.5vw;
+}
+
 .expDate{
     display: flex;
     flex-flow: column;
 }
+
+
 
 .expDate span {
     margin-left: 5px;
@@ -195,6 +199,16 @@ form{
     margin: 5px;
     flex-grow: 1;
     
+}
+
+.erroName, .erroCard, .erroAno, .erroMes, .erroCvc {
+    color: orangered;
+    font-size: 2.5vw;
+    margin-left: 2px;
+}
+
+.hidden{
+    display: none;
 }
 
 input::placeholder{
@@ -223,7 +237,7 @@ footer{
     display: none;
 }
 
-/* @media screen and (min-width: 762px) and (max-width:992px) {
+ @media screen and (min-width: 762px) and (max-width:992px) {
 
     #container{
         min-height: 100vh;
@@ -257,16 +271,18 @@ footer{
     }
 
     .cardBack{
-        top: 35vh;
-        left: 55%;
-        transform: translateY(55%);
-        width: 80%; 
+        top: 55vh;
+        left: 10%;
+        transform: translateX(50%);
+        width: 90%; 
     }
 
-    .cardFront {
-        top: 20vh;
-        left: 40%;
-        width: 80%;
+    
+    .cardFront{
+        top: 35vh;
+        left: 10%;
+        transform: translateX(25%);
+        width: 90%; 
     }
 
     .zeros{
@@ -340,10 +356,10 @@ footer{
         background-color: rgb(48, 6, 87);
     }
     
-} */
+} 
 
 
-@media screen and (min-width: 762px) {
+@media screen and (min-width: 992px) {
 
     #container{
         min-height: 100vh;
@@ -391,11 +407,14 @@ footer{
         width: 90%; 
     }
 
-    .inputName, .inputCard, .expDate span{
+    .inputName, span, .inputCard, .expDate span{
         padding-top: 0%;
-        font-size: 1vw;
+        font-size: 1.2vw;
     }
 
+    input{
+        font-size: 1.1vw;
+    }
     
     .inputDate{
         display: flex;
@@ -445,6 +464,9 @@ footer{
         padding: 5px;
     }
 
+    .erroName, .erroCard, .erroAno, .erroMes, .erroCvc{
+        font-size: 1vw;
+    }
 
 
     input::placeholder{

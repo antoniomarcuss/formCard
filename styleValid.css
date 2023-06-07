@@ -38,11 +38,11 @@ header{
 
 header p {
     position: absolute;
-    top: 42%;
+    top: 44%;
     right: 12%;
     color: white;
     z-index: 1;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 
 
@@ -105,22 +105,22 @@ header p {
 }
 
 .zeros span{
-    font-size: 4.4vw;
-    margin: 0.3em;
+    font-size: 4.8vw;
+    margin: 0.1em;
     color: white;
 }
 
 .dados {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     left: 7%;
     transform: translateY(65%);
-    font-size: 3.5vw;   
+    font-size: 2.5vw;   
 }
 
 .zeros2{
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     right: 20px;
     transform: translateY(65%);
     font-size: 2.5vw;  
@@ -128,6 +128,7 @@ header p {
 
 .imgValid img{
     width: 10vh;
+    padding-top: 10px;
 }
 
 .imgValid{
@@ -136,6 +137,7 @@ header p {
     justify-content: center;
     align-items: center;
 }
+
 
 form{
     display: flex;
@@ -162,6 +164,7 @@ form,span {
 
 .botao  {
     width: 90%;
+    padding-top: 20px;
 }
 
 button{
@@ -185,9 +188,115 @@ footer{
     display: none;
 }
 
+@media screen and (min-width: 762px) and (max-width:992px) {
+    #container{
+        min-height: 100vh;
+    }
+
+    header{
+        width: 45%;
+    }
+
+    header p {
+        top: 44%;
+        font-size: 1vw;
+    }
+
+    main{
+        max-width: 1440px;
+        height: 100vh;
+        display: flex;
+        position: relative;
+    }
+
+    .imgMobile{
+        display: none;
+    }
+
+    .imgDesktop{
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .cardBack{
+        top: 55vh;
+        left: 10%;
+        transform: translateX(50%);
+        width: 90%; 
+    }
+
+    
+    .cardFront{
+        top: 35vh;
+        left: 10%;
+        transform: translateX(25%);
+        width: 90%; 
+    }
+
+    
+    
+    .zeros span{
+        font-size: 1.7vw;
+        margin: 0.1em;
+    }
+
+    .dados {
+        font-size: 1vw;   
+    }
+    
+    .zeros2{
+        bottom: 3%;
+        font-size: 1vw;  
+    }
+
+    .imgValid img{
+        width: 6vw;
+    }
+    
+    .imgValid{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    form{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    form p{
+        font-size: 2vw;
+        color: var(--very-dark-violet);
+        font-weight: bold;
+    }
+    
+    form,span {
+        font-size: 1.5vw;
+        color: var(--dark-grayish-violet);
+    }
+
+    .botao{
+        width: 40%;
+    }
+
+    .botao button{
+        padding: 15px;
+        font-size: 1.5vw;
+    }
+
+    button:hover{
+        background-color: rgb(48, 6, 87);
+        
+    }
+}
 
 
-@media screen and (min-width: 762px) {
+
+@media screen and (min-width:992px) {
 
     #container{
         min-height: 100vh;
@@ -237,12 +346,12 @@ footer{
     
     
     .zeros span{
-        font-size: 1.4vw;
-        margin: 0.2em;
+        font-size: 1.7vw;
+        margin: 0.1em;
     }
 
     .dados {
-        font-size: 1.3vw;   
+        font-size: 1vw;   
     }
     
     .zeros2{
@@ -251,7 +360,7 @@ footer{
     }
 
     .imgValid img{
-        width: 7vw;
+        width: 6vw;
     }
     
     .imgValid{
