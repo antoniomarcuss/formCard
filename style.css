@@ -194,10 +194,11 @@ input {
     width: 95%;
     text-align: left;
     border-radius: 5px;
-    border: 1px solid rgb(189, 189, 189);
+    border: 1px solid #bdbdbd;
     padding: 8px;
     margin: 5px;
     flex-grow: 1;
+    outline: 0;
     
 }
 
@@ -236,6 +237,7 @@ footer{
 .imgDesktop{
     display: none;
 }
+
 
  @media screen and (min-width: 762px) and (max-width:992px) {
 
@@ -332,6 +334,14 @@ footer{
      .expDate {
         display: flex;
         flex-grow: 1;
+    }
+
+    .erroName, .erroCard, .erroAno, .erroMes, .erroCvc{
+        font-size: 1vw;
+    }
+
+    input{
+        font-size: 1.5vw;
     }
 
     #name, #card{
@@ -465,7 +475,7 @@ footer{
     }
 
     .erroName, .erroCard, .erroAno, .erroMes, .erroCvc{
-        font-size: 1vw;
+        font-size: 0.8vw;
     }
 
 
