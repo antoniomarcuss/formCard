@@ -271,7 +271,7 @@ footer{
     }
 
     .cardBack{
-        top: 55vh;
+        top: 45vh;
         left: 10%;
         transform: translateX(50%);
         width: 90%; 
@@ -279,7 +279,7 @@ footer{
 
     
     .cardFront{
-        top: 35vh;
+        top: 25vh;
         left: 10%;
         transform: translateX(25%);
         width: 90%; 

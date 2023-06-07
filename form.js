@@ -42,10 +42,12 @@ function validarFormulario() {
   
   const nomeValido = validarCampo(nameInput, regexLetras, '.erroName');
   const cardValido = validarCampo(cardInput, regexNum, '.erroCard');
-  const expDateValido = validarCampo(expDate, regexMes, '.erroMes') && validarCampo(inputAno, regexAno, '.erroAno');
+  const expMesValido = validarCampo(expDate, regexMes, '.erroMes')
+  const expAnoValido = validarCampo(inputAno, regexAno, '.erroAno');
+
   const cvcValido = validarCampo(cvc, regexCVC, '.erroCvc');
   
-  return nomeValido && cardValido && expDateValido && cvcValido;
+  return nomeValido && cardValido && expMesValido && expAnoValido && cvcValido;
 }
 
 nameInput.addEventListener('input', digitarInput);
