@@ -115,12 +115,12 @@ header p {
     bottom: 3%;
     left: 7%;
     transform: translateY(65%);
-    font-size: 2.5vw;   
+    font-size: 3.5vw;    
 }
 
 .zeros2{
     position: absolute;
-    bottom: 3%;
+    bottom: 2%;
     right: 20px;
     transform: translateY(65%);
     font-size: 2.5vw;  
@@ -328,19 +328,20 @@ footer{
         height: 100vh;
     }
 
+    
     .cardBack{
         top: 50vh;
         left: 10%;
         transform: translateX(50%);
-        width: 90%; 
+        width: 100%; 
     }
 
     
     .cardFront{
-        top: 17vh;
+        top: 13vh;
         left: 10%;
         transform: translateX(25%);
-        width: 90%; 
+        width: 100%; 
     }
 
     
@@ -351,7 +352,7 @@ footer{
     }
 
     .dados {
-        font-size: 1vw;   
+        font-size: 1.2vw;   
     }
     
     .zeros2{

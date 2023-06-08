@@ -406,15 +406,15 @@ footer{
         top: 50vh;
         left: 10%;
         transform: translateX(50%);
-        width: 90%; 
+        width: 100%; 
     }
 
     
     .cardFront{
-        top: 17vh;
+        top: 13vh;
         left: 10%;
         transform: translateX(25%);
-        width: 90%; 
+        width: 100%; 
     }
 
     .inputName, span, .inputCard, .expDate span{
@@ -438,7 +438,7 @@ footer{
     }
 
     .dados {
-        font-size: 1.3vw;   
+        font-size: 1.2vw;   
     }
     
     .zeros2{
