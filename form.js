@@ -36,16 +36,32 @@
         return true;
       }
     }
+    
+    function validarFormulario() {
+      const regexLetras = /^[A-Za-z\s]{4,}$/; // Expressão regular que permite apenas letras e espaços
+      const regexNum = /^\d{16}$/; // Expressão regular para 16 dígitos numéricos
+      const regexMes = /^(0?[1-9]|1[0-2])$/;
+      const regexAno = /^\d{2}$/;
+      const regexCVC = /^[0-9]{3,4}$/;
+  
+      const nomeValido = validarCampo(nameInput, regexLetras, '.erroName');
+      const cardValido = validarCampo(cardInput, regexNum, '.erroCard');
+      const expMesValido = validarCampo(expDate, regexMes, '.erroMes');
+      const expAnoValido = validarCampo(inputAno, regexAno, '.erroAno');
+      const cvcValido = validarCampo(cvc, regexCVC, '.erroCvc');
+  
+      return nomeValido && cardValido && expMesValido && expAnoValido && cvcValido;
+    }
   
     function limitarNameCard(){
       if(nameInput.value.length > 25){
         nameInput.value = nameInput.value.slice(0, 30);
       }
     }
-  
+    
     function limitarTamanhoCartao() {
-      if (cardInput.value.length > 16) {
-        cardInput.value = cardInput.value.slice(0, 16);
+        if (cardInput.value.length > 16) {
+            cardInput.value = cardInput.value.slice(0, 16);
       }
     }
   
@@ -65,22 +81,6 @@
       }
   
       atualizarMeseAno();
-    }
-  
-    function validarFormulario() {
-      const regexLetras = /^[A-Za-z\s]{4,}$/; // Expressão regular que permite apenas letras e espaços
-      const regexNum = /^\d{16}$/; // Expressão regular para 16 dígitos numéricos
-      const regexMes = /^(0?[1-9]|1[0-2])$/;
-      const regexAno = /^\d{2}$/;
-      const regexCVC = /^[0-9]{3,4}$/;
-  
-      const nomeValido = validarCampo(nameInput, regexLetras, '.erroName');
-      const cardValido = validarCampo(cardInput, regexNum, '.erroCard');
-      const expMesValido = validarCampo(expDate, regexMes, '.erroMes');
-      const expAnoValido = validarCampo(inputAno, regexAno, '.erroAno');
-      const cvcValido = validarCampo(cvc, regexCVC, '.erroCvc');
-  
-      return nomeValido && cardValido && expMesValido && expAnoValido && cvcValido;
     }
   
     function atualizarNumber() {
@@ -132,6 +132,7 @@
     cardInput.addEventListener('input', atualizarNumber);
     expDate.addEventListener('input', digitarInput);
     expDate.addEventListener('input', atualizarMeseAno);
+    expDate.addEventListener('input', limitarAnoeMes);
     inputAno.addEventListener('input', digitarInput);
     inputAno.addEventListener('input', limitarAnoeMes);
     inputAno.addEventListener('input', limitarAnoeMes);
