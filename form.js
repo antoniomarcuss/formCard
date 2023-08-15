@@ -1,145 +1,139 @@
-(function(){
-    const form = document.querySelector('form');
-    const nameInput = document.querySelector('#name');
-    const cardInput = document.querySelector('#card');
-    const expDate = document.querySelector('#mm');
-    const inputAno = document.querySelector('#yy');
-    const cvc = document.querySelector('#cvc');
-    const novoCvc = document.querySelector('.cardBack p');
-  
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      enviarForm();
-    });
-  
-    function enviarForm(){
-      if(validarFormulario()){
-        localStorage.setItem('numberCard', cardInput.value);
-        localStorage.setItem('nameCard', nameInput.value);
-        localStorage.setItem('cvcCard', cvc.value);
-        localStorage.setItem('mesCard', expDate.value);
-        localStorage.setItem('anoCard', inputAno.value);
-        form.submit();
-      }
-    }
-  
-    function validarCampo(input, regex, erroSelector) {
-      const erroElemento = document.querySelector(erroSelector);
-  
-      if (!input.value || !regex.test(input.value)) {
-        erroElemento.style.display = 'block';
-        input.style.border = '1px solid orange';
-        return false;
-      } else {
-        erroElemento.style.display = 'none';
-        input.style.border = '1px solid #bdbdbd';
-        return true;
-      }
-    }
-    
-    function validarFormulario() {
-      const regexLetras = /^[A-Za-z\s]{4,}$/; // Expressão regular que permite apenas letras e espaços
-      const regexNum = /^\d{16}$/; // Expressão regular para 16 dígitos numéricos
-      const regexMes = /^(0?[1-9]|1[0-2])$/;
-      const regexAno = /^\d{2}$/;
-      const regexCVC = /^[0-9]{3,4}$/;
-  
-      const nomeValido = validarCampo(nameInput, regexLetras, '.erroName');
-      const cardValido = validarCampo(cardInput, regexNum, '.erroCard');
-      const expMesValido = validarCampo(expDate, regexMes, '.erroMes');
-      const expAnoValido = validarCampo(inputAno, regexAno, '.erroAno');
-      const cvcValido = validarCampo(cvc, regexCVC, '.erroCvc');
-  
-      return nomeValido && cardValido && expMesValido && expAnoValido && cvcValido;
-    }
-  
-    function limitarNameCard(){
-      if(nameInput.value.length > 25){
-        nameInput.value = nameInput.value.slice(0, 30);
-      }
-    }
-    
-    function limitarTamanhoCartao() {
-        if (cardInput.value.length > 16) {
-            cardInput.value = cardInput.value.slice(0, 16);
-      }
-    }
-  
-    function limitarCvc(){
-      if(cvc.value.length > 3){
-        cvc.value = cvc.value.slice(0,3);
-      }
-    }
-  
-    function limitarAnoeMes() {
-      if (expDate.value.length > 2) {
-        expDate.value = expDate.value.slice(0, 2);
-      }
-  
-      if (inputAno.value.length > 2) {
-        inputAno.value = inputAno.value.slice(0, 2);
-      }
-  
-      atualizarMeseAno();
-    }
-  
-    function atualizarNumber() {
-      const numerosCartao = cardInput.value.padEnd(16, '0').slice(0, 16);
-      const spans = document.querySelectorAll('.zeros span');
-  
-      for (let i = 0; i < spans.length; i++) {
-        const span = spans[i];
-        const numberZero = numerosCartao.substr(i * 4, 4);
-        span.textContent = numberZero;
-      }
-    }
-  
-    function atualizarName() {
-      const nomeCartao = nameInput.value;
-      const nomeElemento = document.querySelector('.dados');
-  
-      if (nomeCartao.trim() !== '') {
-        nomeElemento.textContent = nomeCartao.toUpperCase();
-      } else {
-        nomeElemento.textContent = 'Jane Appleseed';
-      }
-    }
-  
-    function atualizarCvc(){
-      const cartaoCvc = cvc.value.padEnd(3, '0').slice(0, 3);
-      novoCvc.textContent = cartaoCvc;
-    }
-  
-    function atualizarMeseAno(){
-      const mes = expDate.value;
-      const ano = inputAno.value;
-      const novoMesAno = document.querySelectorAll('.zeros2');
-  
-      novoMesAno.forEach(element => {
-        element.textContent = `${mes}/${ano}`;
-      });
-    }
-    
-    function digitarInput() {
-      this.nextElementSibling.style.display = 'none';
-      this.style.border = '1px solid #bdbdbd';
-    }
-    nameInput.addEventListener('input', digitarInput);
-    nameInput.addEventListener('input', limitarNameCard);
-    nameInput.addEventListener('input', atualizarName);
-    cardInput.addEventListener('input', digitarInput);
-    cardInput.addEventListener('input', limitarTamanhoCartao);
-    cardInput.addEventListener('input', atualizarNumber);
-    expDate.addEventListener('input', digitarInput);
-    expDate.addEventListener('input', atualizarMeseAno);
-    expDate.addEventListener('input', limitarAnoeMes);
-    inputAno.addEventListener('input', digitarInput);
-    inputAno.addEventListener('input', limitarAnoeMes);
-    inputAno.addEventListener('input', limitarAnoeMes);
-    inputAno.addEventListener('input', atualizarMeseAno);
-    cvc.addEventListener('input', digitarInput);
-    cvc.addEventListener('input', atualizarCvc);
-    cvc.addEventListener('input', limitarCvc);
-  
-  })();
-  
+const formContainer = document.querySelector('.form')
+const nameCard = document.querySelector('.dados')
+const mesCard = document.querySelector('.mes')
+const anoCard = document.querySelector('.ano')
+const spans = document.querySelectorAll('.zeros span');
+const cvcCard = document.querySelector('.cardBack p')
+const formSent = document.querySelector('.form-sent')
+
+const validateFild = (inputElement, regex) => {
+  const errorMessage = inputElement.nextElementSibling;
+  if (!regex.test(inputElement.value)) {
+    errorMessage.classList.remove('hidden');
+    inputElement.classList.add('inputErro');
+    return false;
+  }
+  errorMessage.classList.add('hidden');
+  inputElement.classList.remove('inputErro');
+  return true;
+}
+
+const validateNameInput = (inputName) => {
+  const nameRegex = /^[A-Za-z ]{4,20}$/
+  return validateFild(inputName, nameRegex)
+}
+
+const validateCardInput = cardInput => {
+  const numberCardRegex = /^\d{16}$/
+  return validateFild(cardInput, numberCardRegex)
+}
+
+const validateMesInput = mesInput => {
+  const mesRegex = /^(0?[1-9]|1[0-2])$/
+  return validateFild(mesInput, mesRegex)
+}
+
+const validateAnoInput = anoInput => {
+  const anoRegex = /^(15|1[6-9]|[2-3]\d|45)$/
+  return validateFild(anoInput, anoRegex)
+}
+
+const validateCvcInput = cvcInput => {
+  const cvcRegex = /^\d{3}$/
+  return validateFild(cvcInput, cvcRegex)
+}
+
+const validateInputs = inputValue => { 
+  const isNameValid = validateNameInput(inputValue.name);
+  const isCardValid = validateCardInput(inputValue.card);
+  const isMesValid = validateMesInput(inputValue.mes);
+  const isAnoValid = validateAnoInput(inputValue.ano);
+  const isCvcValid = validateCvcInput(inputValue.cvc); 
+  return isNameValid && isCardValid && isMesValid && isAnoValid && isCvcValid;
+}
+
+const sendForm =  inputValue =>{
+  if(validateInputs(inputValue)){
+    formContainer.classList.add('hidden')
+    formSent.classList.remove('hidden')
+  }else{
+    formSent.classList.add('hidden')
+  }
+}
+
+formContainer.addEventListener('submit', event =>{
+  event.preventDefault()
+  const inputValue = event.target
+  sendForm(inputValue)
+})
+
+formContainer.name.addEventListener('input', event => {
+  let inputName = event.target;
+  if (inputName.value.length > 20) {
+    inputName.value = inputName.value.slice(0, 20);
+  }
+  if (!inputName.value) {
+    nameCard.textContent = 'Preencha o campo Name';
+    validateNameInput(inputName);
+  } else {
+    nameCard.textContent = inputName.value.toUpperCase();
+    validateNameInput(inputName);
+  }
+});
+
+formContainer.card.addEventListener('input', event => {
+  let inputCard = event.target.value.padEnd(16, '0');
+  if (inputCard.length > 16) {
+    inputCard = inputCard.slice(0, 16);
+    event.target.value = inputCard
+  }
+  spans.forEach((span, i) => {
+    const numberZero = inputCard.substr(i * 4, 4);
+    span.textContent = numberZero;
+  });
+  validateCardInput(event.target);
+});
+
+const modifyMonthAndYearTextCard = (inputValue, inputElement) =>{
+  let modifiedValue = inputValue.value.padEnd(1,'0').slice(0,2)
+  inputElement.textContent = modifiedValue
+}
+
+formContainer.mes.addEventListener('input', event => {
+  let inputValue = event.target.value;
+  if (inputValue.length > 2) {
+    inputValue = inputValue.slice(0, 2);
+    event.target.value = inputValue;
+  }
+  modifyMonthAndYearTextCard(event.target, mesCard);
+  validateMesInput(event.target);
+});
+
+formContainer.ano.addEventListener('input', event => {
+  let inputValue = event.target.value;
+  if (inputValue.length > 2) {
+    inputValue = inputValue.slice(0, 2);
+    event.target.value = inputValue;
+  }
+  modifyMonthAndYearTextCard(event.target, anoCard);
+  validateAnoInput(event.target);
+});
+
+formContainer.cvc.addEventListener('input', event => {
+  let inputValue = event.target.value;
+  if (inputValue.length > 3) {
+    inputValue = inputValue.slice(0, 3);
+    event.target.value = inputValue;
+  }
+  cvcCard.textContent = inputValue;
+  validateCvcInput(event.target);
+});
+
+formSent.addEventListener('submit',event => {
+  event.preventDefault()
+  formContainer.classList.remove('hidden')
+  formSent.classList.add('hidden')
+  location.reload()
+})
+
+

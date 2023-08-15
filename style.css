@@ -106,7 +106,7 @@ header p {
 }
 
 .zeros span{
-    font-size: 4.4vw;
+    font-size: 4.3vw;
     margin: 0.3em;
     color: white;
 }
@@ -122,9 +122,14 @@ header p {
 .zeros2{
     position: absolute;
     bottom: 5%;
-    right: 20px;
-    transform: translateY(65%);
-    font-size: 2.5vw;  
+    right: 5%;
+    transform: translateY(65%); 
+}
+
+.zeros2 span {
+    color: white;
+    font-size: 80%; 
+
 }
 
 
@@ -145,7 +150,6 @@ form{
 
 
 #name, #card{
-    display: flex;
     width: 100%;
     margin: 5px 0px;
     padding: 10px;
@@ -174,13 +178,11 @@ input {
     flex-flow: column;
 }
 
-
-
 .expDate span {
     margin-left: 5px;
 }
 
-#mm, #yy {
+#mes, #ano {
     width: 80%;
     border-radius: 5px;
     border: 1px solid rgb(189, 189, 189);
@@ -195,22 +197,23 @@ input {
     text-align: left;
     border-radius: 5px;
     border: 1px solid #bdbdbd;
-    padding: 8px;
+    padding: 15px;
     margin: 5px;
-    flex-grow: 1;
     outline: 0;
+    text-align: center;
     
 }
 
-.erroName, .erroCard, .erroAno, .erroMes, .erroCvc {
+.erro {
     color: orangered;
     font-size: 2.5vw;
     margin-left: 2px;
 }
 
-.hidden{
-    display: none;
+#name.inputErro, #card.inputErro, #mes.inputErro, #ano.inputErro, #cvc.inputErro {
+    border: 1px solid red;
 }
+   
 
 input::placeholder{
     color: var(--light-grayish-violet);
@@ -236,6 +239,44 @@ footer{
 
 .imgDesktop{
     display: none;
+}
+
+.form-sent {
+    display: flex;
+    min-height: 60vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-sent img {
+    width: 50px;
+}
+
+.form-sent p{
+    font-size: 30px;
+    color: var(--very-dark-violet);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.form-sent,span {
+    margin-top: 10px;
+    font-size: 15px;
+    color: var(--dark-grayish-violet);
+}
+
+.form-sent button {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    background-color: var(--very-dark-violet);
+    color: white;
 }
 
 
@@ -294,7 +335,6 @@ footer{
     .zeros span{
         font-size: 1.5vw;
         margin: 0.2em;
-
     }
 
     .dados {
@@ -302,8 +342,7 @@ footer{
     }
     
     .zeros2{
-        bottom: 3%;
-        font-size: 1vw;  
+        bottom: 1%;
     }
 
     form{
@@ -317,7 +356,7 @@ footer{
         width: 70%;
     }
 
-    #mm, #yy, #cvc {
+    #mes, #ano, #cvc {
         padding: 5px;
     
     }
@@ -336,7 +375,7 @@ footer{
         flex-grow: 1;
     }
 
-    .erroName, .erroCard, .erroAno, .erroMes, .erroCvc{
+    .erro{
         font-size: 1vw;
     }
 
@@ -365,7 +404,22 @@ footer{
     button:hover{
         background-color: rgb(48, 6, 87);
     }
-    
+
+    .form-sent {
+        display: flex;
+        min-height: 60vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 100px;
+    }
+
+    .form-sent button {
+        text-align: center;
+        width: 60%;
+        padding: 15px;
+       
+    }
 } 
 
 
@@ -427,10 +481,8 @@ footer{
     }
     
     .inputDate{
-        display: flex;
-        width: 40%;
+        width: 50%;
     }
-    
     
     .zeros span{
         font-size: 1.4vw;
@@ -455,26 +507,21 @@ footer{
     }
 
     .nameCard{
-        width: 40%;
+        width: 50%;
     }
 
-    #mm, #yy, #cvc {
+    #mes, #ano, #cvc {
         padding: 5px;
-        width: 80%;
+        width:100px;
     
     }
 
-
-     .expDate {
-        display: flex;
-        flex-grow: 1;
-    }
 
     #name, #card{
         padding: 5px;
     }
 
-    .erroName, .erroCard, .erroAno, .erroMes, .erroCvc{
+    .erro{
         font-size: 0.8vw;
     }
 
@@ -484,7 +531,7 @@ footer{
     }
 
     .botao{
-        width: 40%;
+        width: 50%;
     }
 
     .botao button{
@@ -515,7 +562,28 @@ footer{
     footer a:hover{
         text-decoration: underline;
     }
+
+    .form-sent {
+        display: flex;
+        min-height: 60vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 100px;
+    }
+
+    .form-sent button {
+        text-align: center;
+        width: 60%;
+        padding: 15px;
+       
+    }
+
+}
+
+.hidden{
+    display: none;
 }
     
-    
+ 
   
